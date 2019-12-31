@@ -1,0 +1,6 @@
+- tensorflow-gpu>=1.12.0
+- keras>=2.2.4
+- pysoundfile (``` pip install pysoundfile```)
+- numpy
+- pickle
+- sklearn
