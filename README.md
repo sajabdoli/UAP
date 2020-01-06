@@ -2,7 +2,7 @@
 Python code for Universal adversarial audio perturbations [1] generation.
 The target model which is used here is the combination of Sincnet [2] +VGG19. [Keras implementation](https://github.com/grausof/keras-sincnet) of SincNet (M. Ravanelli - Y. Bengio) [2] is used. The model is trained on [UrbanSound8k](https://urbansounddataset.weebly.com/urbansound8k.html) dataset [3]. For more information on data normalization please refer to our paper [1].
 
-Two models are used for UAP generation The first method is based on an iterative, greedy approach that is well-known in computer vision [4]: it aggregates small perturbations to the input so as to push it to the decision boundary. The second method, which is the main contribution of our paper [1], is a novel penalty formulation, which finds targeted and untargeted universal adversarial perturbations.
+Two methods are used for UAP generation The first method is based on an iterative, greedy approach that is well-known in computer vision [4]: it aggregates small perturbations to the input so as to push it to the decision boundary. The second method, which is the main contribution of our paper [1], is a novel penalty formulation, which finds targeted and untargeted universal adversarial perturbations.
 
 ## Prerequisites
 - tensorflow-gpu>=1.12.0
