@@ -1,4 +1,6 @@
 #################################################DDN ATTACK######################
+# DDN Decoupling Direction and Norm for Efficient Gradient-Based L2 Adversarial Attacks and Defenses
+# Proposed by  Rony et. al. https://arxiv.org/pdf/1811.09600.pdf
 
 from typing import Tuple, Optional, Callable
 import tensorflow as tf
