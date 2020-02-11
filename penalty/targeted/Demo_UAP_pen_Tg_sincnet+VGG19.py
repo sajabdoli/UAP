@@ -39,9 +39,6 @@ if __name__ == '__main__':
 
     #Define default parameters:
 
-    # Number of available samples for UAP generation
-    len_batch= 1000
-
     # Test fold
     fold = 0
 
