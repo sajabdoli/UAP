@@ -48,7 +48,7 @@ def create_wave_batch_u(X_train_att, Y_train_att, len_batch, batch_ind):
 
 
 
-# Perturb the dataset with computed perturbation and compute ASR on training set
+# Perturb the dataset with computed perturbation and compute ASR on training set for Untargeted Attack
 def fool_rate_comp_untargeted(wav, X, num_wav, batch_size, labels_true, model_end):
     
     labels_true = np.zeros((num_wav))
@@ -79,3 +79,35 @@ def fool_rate_comp_untargeted(wav, X, num_wav, batch_size, labels_true, model_en
 
         
         return fooling_rate
+    
+# Perturb the dataset with computed perturbation and compute ASR on training set for Targeted Attack
+def fool_rate_comp_targeted(X, num_wav, batch_size, labels_true, model_end):
+    
+    labels_target = np.zeros((num_wav))
+    est_labels_pert = np.zeros((num_wav))
+
+    num_batches = np.int(np.ceil(np.float(num_wav) / np.float(batch_size)))
+
+    # Compute the estimated labels in batches    
+    for ii in range(0, num_batches):
+
+        m = (ii * batch_size)
+        M = min((ii+1)*batch_size, num_wav)
+        
+        #print (m)
+        #print (M)
+
+        labels_target[m:M] = Target_class
+        est_labels_pert[m:M] = np.argmax(model_end.predict(X[m:M, :, :]), axis=1).flatten()
+     
+        #print (labels_target)
+        #print (est_labels_pert)
+
+        # Compute the fooling rate
+
+        fooling_rate = float(np.sum(est_labels_pert == labels_target) / float(num_wav))
+        print('FOOLING RATE = ')
+        print ("%.5f" % fooling_rate)
+        
+        return fooling_rate  
+
