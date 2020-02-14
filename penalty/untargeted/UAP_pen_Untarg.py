@@ -51,6 +51,7 @@ def target_category_loss_untarg(logits,new_wav,v, batch_lab, C, CONFIDENCE):
 def un_pert_gen(len_train_set_att, len_batch, X_train_arced, X_train_att,  Y_train_att, model_end,
                 CONFIDENCE=40, C=0.2, delta_fooling_rate=0.1):
     
+    signal_shape = 50999
     boxmin=0 #Minimum signal value (default 0).
     boxmax=1 #Maximum signal value (default 1).
     boxmul = (boxmax - boxmin) / 2.
@@ -73,7 +74,7 @@ def un_pert_gen(len_train_set_att, len_batch, X_train_arced, X_train_att,  Y_tra
     itr= 0        # Iteration counter
 
     # true perturbation: v_trainset in [0, 1]
-    v_trainset= np.zeros((50999,1), dtype=float)
+    v_trainset= np.zeros((signal_shape,1), dtype=float)
 
     fooling_rate = 0.0
 
