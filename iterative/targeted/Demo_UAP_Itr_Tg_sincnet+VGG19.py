@@ -56,8 +56,8 @@ if __name__ == '__main__':
 	#controls the l_inf magnitude of the perturbation (default = 0.12)
 	xi=0.12
     
-    # desired fooling rate on perturbed training samples
-    delta=0.1
+    	# desired fooling rate on perturbed training samples
+    	delta=0.1
 
 	#LOAD SAVED UrbanSound8k DATASET dumped in .npy files (8732 audio samples)
 	X=np.load(os.path.join(dir_of_file,"data","data_X.npy"))
