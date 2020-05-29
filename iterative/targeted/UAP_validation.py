@@ -23,9 +23,7 @@ def validation(v, Target_class, model_end, X_test):
 
         classified = np.argmax(model_end.predict([v_fin]))
 
-        correct=np.argmax(model_end.predict(np.expand_dims(X_test[s], axis=0)))
-
-        if (classified != correct):
+        if (classified == Target_class):
             num_false_after_perturbation = num_false_after_perturbation + 1
 
     return snr_t / float(X_test.shape[0]), float(num_false_after_perturbation)/float(X_test.shape[0])
